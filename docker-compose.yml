@@ -2,7 +2,7 @@ nightscout:
   image: dhermanns/rpi-nightscout
   environment:
     MONGO_CONNECTION: mongodb://mongo:27017/nightscout
-    API_SECRET: nightscout2000
+    API_SECRET: yourpasswordhere
     BG_HIGH: 240
     BG_LOW: 60
     BG_TARGET_TOP: 180
