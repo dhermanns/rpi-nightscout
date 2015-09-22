@@ -1,6 +1,19 @@
 # rpi-nightscout
 CGM Remote Monitor aka Nightscout for the Raspberry Pi 1/2.
 
+# Github library
+The image is created by using the Github Repository located here:
+https://github.com/dhermanns/rpi-nightscout
+
+# Usage
+The above git-repository contains the Docker file to this image and a
+docker-compose script to startup rpi-nightscout referencing the
+necessary rpi-mongo database image.
+
+Please go to the rpi-nightscout git repository and follow the
+instructions there to fireup a working nightscout installation running
+on a raspberry pi.
+
 License
 ---------------
 
