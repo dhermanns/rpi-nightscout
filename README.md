@@ -44,6 +44,7 @@ You can edit your API Key by using e.g. nano editor
 ```
 nano docker-compose.yml
 ```
+Remember that you have to provide a secret key that has to have at least 12 characters!
 
 ## Fire-up the Nightscout Application
 After cloning you are ready to startup the Nightscout Application using docker compose
