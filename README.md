@@ -11,14 +11,14 @@ https://github.com/dhermanns/rpi-nightscout
 
 # Usage
 ## Install Hypriot OS on your Raspberry
-First of all, you need a Raspberry Pie 1 or 2. Install an operation system that supports
+First of all, you need a Raspberry Pi 1 or 2. Install an operating system that supports
 the docker runtime. E.g. follow the instructions to install the nice hypriot os:
 http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/
 
 ## Install Docker-Compose
 Afterwards you should have a running Raspberry which is able to start Docker Container.
-What we need more is the docker-compose component. Using this tool we are able to fire up
-all that is need to start Nightscout with just two command lines.
+What we additionally need is the docker-compose component. Using this tool we are able to fire up
+all that is needed to start Nightscout plus Mongo with just two command lines.
 
 The steps needed to install docker-compose are documented here:
 http://blog.hypriot.com/post/docker-compose-nodejs-haproxy
@@ -34,7 +34,7 @@ Clone this repository to your Raspberry. Execute
 git clone https://github.com/dhermanns/rpi-nightscout
 ```
 The above git-repository contains the Docker file to create a docker image and a
-docker-compose script to startup rpi-nightscout referencing the
+docker-compose script to launch rpi-nightscout referencing the
 necessary rpi-mongo database image.
 
 ## Modify your API Key
@@ -66,9 +66,11 @@ only! The internal Mongo Port is not exposed by default.
 
 So let your Uploader point to the REST API located here:
 ```
-http://<name-of-my-raspberry>:1337/api/v1/
+<mysecretapikey>@http://<name-of-my-raspberry>:1337/api/v1/
 ```
 And enter your Secret API Key that you have configured in your docker-compose.yml file.
+
+!!!**WARNING** - the format is not documented on the arbox0 site and the format documented for the dexcom version of the uploader differs from the format above. But what's working for me with the arbox0 uploader is exactly the format above!!!
 
 Congratulations - you should have a complete Nightscout System to monitor your diabetes data
 based on your local Raspi!
