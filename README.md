@@ -42,6 +42,7 @@ It is recommended that you add your own API Key. This key has to be entered into
 If you are using a Medtronic Pump, than you are using [this](https://github.com/arbox0/MedtronicUploader) application.
 You can edit your API Key by using e.g. nano editor
 ```
+cd rpi-nightscout
 nano docker-compose.yml
 ```
 Remember that you have to provide a secret key that has to have at least 12 characters!
@@ -49,7 +50,6 @@ Remember that you have to provide a secret key that has to have at least 12 char
 ## Fire-up the Nightscout Application
 After cloning you are ready to startup the Nightscout Application using docker compose
 ```
-cd rpi-nightscout
 docker-compose up
 ```
 
