@@ -50,7 +50,7 @@ Remember that you have to provide a secret key that has to have at least 12 char
 ## Fire-up the Nightscout Application
 After cloning you are ready to start the Nightscout Application using docker compose
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 ## Access your Nightscout Application
