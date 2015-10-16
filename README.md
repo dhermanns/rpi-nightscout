@@ -48,7 +48,7 @@ nano docker-compose.yml
 Remember that you have to provide a secret key that has to have at least 12 characters!
 
 ## Fire-up the Nightscout Application
-After cloning you are ready to startup the Nightscout Application using docker compose
+After cloning you are ready to start the Nightscout Application using docker compose
 ```
 docker-compose up
 ```
