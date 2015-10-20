@@ -12,5 +12,5 @@ nightscout:
   links:
     - mongo
 mongo:
-  image: dhermanns/rpi-mongo:2.6.5
+  image: dhermanns/rpi-mongo:2.6.4
   command: "/opt/mongodb/bin/mongod"
