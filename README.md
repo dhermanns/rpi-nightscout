@@ -76,7 +76,7 @@ Congratulations - you should have a complete Nightscout System to monitor your d
 based on your local Raspi!
 
 ## Activate HTTPS
-If you would like to use e.g. the MyBG Apple Watch App, you will have to activate HTTPS to the remote monitor.
+If you would like to use e.g. the MyBG Apple Watch App, you will have to activate HTTPS for the nightscout cgm remote monitor.
 To do this, first create a private key and a certification request for your node-server:
 ```
 openssl req -nodes -newkey rsa:2048 -keyout server.key -out server.csr
@@ -85,11 +85,13 @@ Afterwards grab a free SSL-Certificate e.g. from this Certification Agency:
 ```
 https://buy.wosign.com/free/
 ```
-Download your server certificate and use the certificates in the file "for Other Server.zip".
+Download your server certificate and use the certificates contained in "for Other Server.zip".
 Create a certification chain in one file:
 ```
 cat 3_user_my-server-domain.de.crt 2_issuer_Intermediate.crt 1_cross_Intermediate.crt > serverchain.crt
 ```
+If you don't create the chain of trust in this way, your browser will complain about your certificate and the iOS and Apple Watch Apps won't work!
+
 Then configure your docker-compose.yml and activate node to use your newly created certificates:
 ```
 nightscout:
@@ -98,7 +100,7 @@ nightscout:
     SSL_KEY: /var/opt/ssl/server.key
     SSL_CERT: /var/opt/ssl/serverchain.crt
 ```
-I dont needed to add anything to the SSL_CA environment value. Take care that you change the URL in the uploader to HTTPS. Change the URL in all other devices e.g. Watches or Smartphones.
+I don't needed to add anything to the SSL_CA environment value. Take care that you change the URL in the uploader to HTTPS. Change the URL in all other devices e.g. Watches or Smartphones.
 
 License
 ---------------
