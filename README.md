@@ -75,6 +75,31 @@ And enter your Secret API Key that you have configured in your docker-compose.ym
 Congratulations - you should have a complete Nightscout System to monitor your diabetes data
 based on your local Raspi!
 
+## Activate HTTPS
+If you would like to use e.g. the MyBG Apple Watch App, you will have to activate HTTPS to the remote monitor.
+To do this, first create a private key and a certification request for your node-server:
+```
+openssl req -nodes -newkey rsa:2048 -keyout server.key -out server.csr
+```
+Afterwards grab a free SSL-Certificate e.g. from this Certification Agency:
+```
+https://buy.wosign.com/free/
+```
+Download your server certificate and use the certificates in the file "for Other Server.zip".
+Create a certification chain in one file:
+```
+cat 3_user_my-server-domain.de.crt 2_issuer_Intermediate.crt 1_cross_Intermediate.crt > serverchain.crt
+```
+Then configure your docker-compose.yml and activate node to use your newly created certificates:
+```
+nightscout:
+  image: dhermanns/rpi-nightscout:0.8.0
+  environment:
+    SSL_KEY: /var/opt/ssl/server.key
+    SSL_CERT: /var/opt/ssl/serverchain.crt
+```
+I dont needed to add anything to the SSL_CA environment value. Take care that you change the URL in the uploader to HTTPS. Change the URL in all other devices e.g. Watches or Smartphones.
+
 License
 ---------------
 
