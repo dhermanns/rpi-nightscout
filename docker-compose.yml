@@ -1,8 +1,9 @@
 nightscout:
   image: dhermanns/rpi-nightscout:0.8.4
   environment:
+    TZ: Europe/Berlin
     MONGO_CONNECTION: mongodb://mongo:27017/nightscout
-    API_SECRET: yourapikeyhere
+    API_SECRET: nightscout2000
     BG_HIGH: 220
     BG_LOW: 60
     BG_TARGET_TOP: 180
