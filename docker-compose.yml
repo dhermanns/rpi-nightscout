@@ -1,5 +1,5 @@
 nightscout:
-  image: dhermanns/rpi-nightscout:0.8.4
+  image: dhermanns/rpi-nightscout:0.9.2
   environment:
     TZ: Europe/Berlin
     MONGO_CONNECTION: mongodb://mongo:27017/nightscout

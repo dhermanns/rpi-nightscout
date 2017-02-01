@@ -1,6 +1,6 @@
 # rpi-nightscout
-CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 1/2.
-This images offers a node.js webserver containing the Nightscout Application Version 0.8.0.
+CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 1/2/3.
+This images offers a node.js webserver containing the Nightscout Application Version 0.9.2.
 
 This image uses the rpi-mongo image to run a mongo database on the Raspberry Pi:
 https://hub.docker.com/r/dhermanns/rpi-mongo
@@ -11,7 +11,7 @@ https://github.com/dhermanns/rpi-nightscout
 
 # Usage
 ## Install Hypriot OS on your Raspberry
-First of all, you need a Raspberry Pi 1 or 2. Install an operating system that supports
+First of all, you need a Raspberry Pi 1,2 or 3. Install an operating system that supports
 the docker runtime. E.g. follow the instructions to install the nice hypriot os:
 http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/
 
@@ -46,6 +46,22 @@ cd rpi-nightscout
 nano docker-compose.yml
 ```
 Remember that you have to provide a secret key that has to have at least 12 characters!
+
+## Modify your Nightscout Settings
+To modify your nightscout configuration, you can simply modify the environment settings in your docker-compose.yml file.
+E.g. to modify the default alarm ranges change the values of BG_HIGH, BG_LOW, etc.:
+```
+nightscout:
+  image: dhermanns/rpi-nightscout:0.9.2
+  environment:
+    TZ: Europe/Berlin
+    MONGO_CONNECTION: mongodb://mongo:27017/nightscout
+    API_SECRET: nightscout2000
+    BG_HIGH: 220
+    BG_LOW: 60
+    BG_TARGET_TOP: 180
+    BG_TARGET_BOTTOM: 80
+```
 
 ## Fire-up the Nightscout Application
 After cloning you are ready to start the Nightscout Application using docker compose
@@ -95,7 +111,7 @@ If you don't create the chain of trust in this way, your browser will complain a
 Then configure your docker-compose.yml and activate node to use your newly created certificates:
 ```
 nightscout:
-  image: dhermanns/rpi-nightscout:0.8.0
+  image: dhermanns/rpi-nightscout:0.9.2
   environment:
     SSL_KEY: /var/opt/ssl/server.key
     SSL_CERT: /var/opt/ssl/serverchain.crt
