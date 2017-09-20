@@ -77,7 +77,7 @@ http://<name-of-my-raspberry>:1337
 in your Webbrowser.
 
 ## Optional: Direct access to the mongo database
-If you would direct access to the mongo database, you will have to open up the mongo db port to be accessible from outside the docker container. You can easily do this by modifying docker-compose.yml:
+If you would like direct access to the mongo database, you will have to open up the mongo db port to be accessible from outside the docker container. You can easily do this by modifying the `docker-compose.yml`:
 ```
 mongo:
   image: dhermanns/rpi-mongo:2.6.4
@@ -90,7 +90,8 @@ mongo:
   restart: always
 ```
 
-This way you should be able to use other tools that would like to get access 
+This way you should be able to use other tools that would like direct access.
+
 ## Configure your Uploader
 To upload your CGM Data to your Nightscout system, this image is designed to use the REST-API Upload
 only! The internal Mongo Port is not exposed by default.
