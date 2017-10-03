@@ -25,7 +25,9 @@ http://blog.hypriot.com/post/docker-compose-nodejs-haproxy
 
 The short story is - simply execute this command:
 ```
-$ sudo sh -c "curl -L https://github.com/hypriot/compose/releases/download/1.1.0-raspbian/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose; chmod +x /usr/local/bin/docker-compose"
+$ sudo su -
+$ curl -L https://github.com/hypriot/compose/releases/download/1.2.0-raspbian/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Checkout this repository to your Raspberry Pi
