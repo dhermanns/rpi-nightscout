@@ -12,7 +12,7 @@ nightscout:
 #    SSL_CERT: /var/opt/ssl/serverchain.crt
 #    SSL_CA: /var/opt/ssl/cachain.crt
     AUTH_DEFAULT_ROLES: readable devicestatus-upload
-    ENABLE: alexa
+    ENABLE: alexa rawbg
   ports:
     - "1337:1337"
   links:
