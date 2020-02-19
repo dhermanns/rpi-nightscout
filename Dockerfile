@@ -8,7 +8,7 @@
 FROM arm32v7/node:10.16
 
 # install git and npm
-RUN apt-get update && apt-get install -y python-software-properties python g++ make git
+RUN apt-get update && apt-get install -y software-properties-common python g++ make git
 
 # Upgrade
 RUN apt-get upgrade -y
