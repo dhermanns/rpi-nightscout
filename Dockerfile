@@ -5,10 +5,10 @@
 #
 
 # Pull base image.
-FROM arm32v7/node:8.5
+FROM arm32v7/node:10-stretch
 
 # install git and npm
-RUN apt-get update && apt-get install -y python-software-properties python g++ make git
+RUN apt-get update && apt-get install -y software-properties-common python g++ make git
 
 # Upgrade
 RUN apt-get upgrade -y
@@ -25,7 +25,7 @@ WORKDIR /home/node/app
 
 # install the application
 RUN git clone https://github.com/nightscout/cgm-remote-monitor.git . && \
-    git checkout tags/0.10.3.1 && \
+    git checkout tags/13.0.1 && \
     npm install
 
 EXPOSE 1337
