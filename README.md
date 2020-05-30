@@ -1,6 +1,6 @@
 # rpi-nightscout
-CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 1/2/3.
-This images offers a node.js webserver containing the Nightscout Application Version 0.9.2.
+CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 2/3/4.
+This images offers a node.js webserver containing the Nightscout Application Version 13.0.1.
 
 This image uses the rpi-mongo image to run a mongo database on the Raspberry Pi:
 https://hub.docker.com/r/dhermanns/rpi-mongo
@@ -11,7 +11,7 @@ https://github.com/dhermanns/rpi-nightscout
 
 # Usage
 ## Install Hypriot OS on your Raspberry
-First of all, you need a Raspberry Pi 1,2 or 3. Install an operating system that supports
+First of all, you need a Raspberry Pi 2,3 or 4. Install an operating system that supports
 the docker runtime. E.g. follow the instructions to install the nice hypriot os:
 http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/
 
