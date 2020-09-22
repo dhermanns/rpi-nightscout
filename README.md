@@ -1,4 +1,4 @@
-forked from dhermanns and updatet to Nightscout 13.0.1 (Ketchup)
+forked from dhermanns and updatet to Nightscout 14.0.3 (Liquorice)
 
 # rpi-nightscout
 CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 1/2/3.
