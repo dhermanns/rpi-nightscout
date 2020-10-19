@@ -8,6 +8,7 @@ nightscout:
     BG_LOW: 60
     BG_TARGET_TOP: 180
     BG_TARGET_BOTTOM: 80
+    INSECURE_USE_HTTP: "true"
 #    SSL_KEY: /var/opt/ssl/server.key
 #    SSL_CERT: /var/opt/ssl/serverchain.crt
 #    SSL_CA: /var/opt/ssl/cachain.crt
