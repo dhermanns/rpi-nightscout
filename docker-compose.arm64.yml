@@ -1,4 +1,5 @@
-version: "3.4"
+version: '3.4'
+services:
   nightscout:
     image: dhermanns/rpi-nightscout:latest
     environment:
@@ -23,12 +24,12 @@ version: "3.4"
       - /home/pi/docker/rpi-nightscout:/var/opt/ssl/:ro
     restart: always
   mongo:
-    image:  arm64v8/mongo:latest
-    volumes:                                                        
+    image: arm64v8/mongo:latest
+    volumes:
       - ./data:/data/db                                                                      
-    ports:                                              
-      - "27017:27017"                                                                                     
-      - "27018:27018"                                                                                            
-      - "27019:27019"                                                                               
-      - "28017:28017" 
+    ports:
+      - "27017:27017"
+      - "27018:27018"
+      - "27019:27019"
+      - "28017:28017"
     restart: always
