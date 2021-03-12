@@ -94,6 +94,13 @@ mongo:
 
 This way you should be able to use other tools that would like direct access.
 
+## Run on Raspberry Pi arm64
+If you use a 64bit Kernel you need to use a compatible mongo docker container. For this reason you might use the alternative docker-compose file 
+
+```
+docker-compose -f docker-compose.arm64.yml up -d
+```
+
 ## Configure your Uploader
 To upload your CGM Data to your Nightscout system, this image is designed to use the REST-API Upload
 only! The internal Mongo Port is not exposed by default.
