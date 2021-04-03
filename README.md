@@ -5,6 +5,10 @@ This images offers a node.js webserver containing the Nightscout Application Ver
 This image uses the rpi-mongo image to run a mongo database on the Raspberry Pi:
 https://hub.docker.com/r/dhermanns/rpi-mongo
 
+Have a look how to run this image using kubernetes (k3s) on a raspberry pi.
+I've written a tutorial for the complete setup process:
+https://h3rmanns.medium.com/creating-a-k3s-raspberry-pi-cluster-with-k3sup-to-fire-up-a-nightscout-backend-service-based-on-a-27c1f5727e5b
+
 # Github Repo
 The image is created by using the Github Repository located here:
 https://github.com/dhermanns/rpi-nightscout
