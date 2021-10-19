@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM arm32v7/node:12-buster
+FROM node:lts-buster
 
 # install git and npm
 RUN apt-get update && apt-get install -y software-properties-common python g++ make git
@@ -14,19 +14,19 @@ RUN apt-get update && apt-get install -y software-properties-common python g++ m
 RUN apt-get upgrade -y
 
 # create node user
-#RUN useradd --system -ms /bin/bash node && \
-#    cd && cp -R .bashrc .profile /home/node && \
-RUN mkdir /home/node/app && \
-    chown -R node:node /home/node
-
+RUN mkdir -p /opt/app
+WORKDIR /opt/app
+RUN chown -R node:node /opt/app
 USER node
-ENV HOME /home/node
-WORKDIR /home/node/app
 
 # install the application
 RUN git clone https://github.com/nightscout/cgm-remote-monitor.git . && \
-    git checkout tags/14.0.6 && \
-    npm install
+    git checkout tags/14.2.2 && \
+    npm install && \
+    npm run postinstall && \
+    npm run env && \
+    npm audit fix
 
 EXPOSE 1337
-CMD ["node", "server.js"]
+
+CMD ["node", "lib/server/server.js"]

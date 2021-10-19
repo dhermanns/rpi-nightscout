@@ -1,9 +1,9 @@
 # rpi-nightscout
 CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 2/3/4.
-This images offers a node.js webserver containing the Nightscout Application Version 13.0.1.
+This images offers a node.js webserver containing the Nightscout Application Version 14.2.2.
 
-This image uses the rpi-mongo image to run a mongo database on the Raspberry Pi:
-https://hub.docker.com/r/dhermanns/rpi-mongo
+This image needs arm64 and therefore e.g. the ubuntu server os. This is because mongo 4.x is only
+available for arm64 - not armv7(32bit) anymore.
 
 Have a look how to run this image using kubernetes (k3s) on a raspberry pi.
 I've written a tutorial for the complete setup process:
@@ -58,7 +58,7 @@ To modify your nightscout configuration, you can simply modify the environment s
 E.g. to modify the default alarm ranges change the values of BG_HIGH, BG_LOW, etc.:
 ```
 nightscout:
-  image: dhermanns/rpi-nightscout:0.9.2
+  image: dhermanns/rpi-nightscout:latest
   environment:
     TZ: Europe/Berlin
     MONGO_CONNECTION: mongodb://mongo:27017/nightscout
@@ -86,23 +86,23 @@ in your Webbrowser.
 If you would like direct access to the mongo database, you will have to open up the mongo db port to be accessible from outside the docker container. You can easily do this by modifying the `docker-compose.yml`:
 ```
 mongo:
-  image: dhermanns/rpi-mongo:2.6.4
+  image: mongo:4.4.9
   ports:
     - "27017:27017"
     - "27018:27018"
     - "27019:27019"
     - "28017:28017"
-  command: "/opt/mongodb/bin/mongod"
   restart: always
 ```
 
 This way you should be able to use other tools that would like direct access.
 
-## Run on Raspberry Pi arm64
-If you use a 64bit Kernel you need to use a compatible mongo docker container. For this reason you might use the alternative docker-compose file 
+## Run on Raspberry Pi with piOS
+piOS (formerly known as raspbian) is based on armv7 (32bit). Since nightscout 14.2.2 needs a mongo-db 4.x, arm64 is required.
+But you can run an older nightscout 14.0.6 an piOS. docker-compose.armv7.yml demonstrates this:
 
 ```
-docker-compose -f docker-compose.arm64.yml up -d
+docker-compose -f docker-compose.armv7.yml up -d
 ```
 
 ## Configure your Uploader

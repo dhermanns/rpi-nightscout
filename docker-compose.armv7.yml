@@ -1,0 +1,29 @@
+nightscout:
+  image: dhermanns/rpi-nightscout:14.0.6
+  environment:
+    TZ: Europe/Berlin
+    MONGO_CONNECTION: mongodb://mongo:27017/nightscout
+    API_SECRET: mypassword123
+    BG_HIGH: 220
+    BG_LOW: 60
+    BG_TARGET_TOP: 180
+    BG_TARGET_BOTTOM: 80
+    INSECURE_USE_HTTP: "true"
+#    SSL_KEY: /var/opt/ssl/server.key
+#    SSL_CERT: /var/opt/ssl/serverchain.crt
+#    SSL_CA: /var/opt/ssl/cachain.crt
+    AUTH_DEFAULT_ROLES: readable devicestatus-upload
+    ENABLE: alexa rawbg
+  ports:
+    - "1337:1337"
+  links:
+    - mongo
+  volumes:
+    - /home/pi/docker/rpi-nightscout:/var/opt/ssl/:ro
+  restart: always
+mongo:
+  image: dhermanns/rpi-mongo:2.6.
+  command: "/opt/mongodb/bin/mongod"
+  restart: always
+  volumes:
+    - "./data:/data/db"  
