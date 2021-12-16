@@ -1,7 +1,7 @@
 #
 # CGM Remote Monitor Dockerfile
 #
-# https://github.com/pkolyvas/rpi-nightscout
+# https://github.com/dhermanns/rpi-nightscout
 #
 
 # Pull base image.
