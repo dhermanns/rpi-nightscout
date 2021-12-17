@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM node:lts-buster
+FROM node:12-buster
 
 # install git and npm
 RUN apt-get update && apt-get install -y software-properties-common python g++ make git
@@ -21,7 +21,7 @@ USER node
 
 # install the application
 RUN git clone https://github.com/nightscout/cgm-remote-monitor.git . && \
-    git checkout tags/14.2.2 && \
+    git checkout tags/14.2.5 && \
     npm install && \
     npm run postinstall && \
     npm run env && \
