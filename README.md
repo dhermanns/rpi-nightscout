@@ -1,6 +1,6 @@
 # rpi-nightscout
 CGM Remote Monitor aka [Nightscout](http://www.nightscout.info) for the Raspberry Pi 2/3/4.
-This images offers a node.js webserver containing the Nightscout Application Version 14.2.2.
+This images offers a node.js webserver containing the Nightscout Application Version 14.2.5.
 
 This image needs arm64 and therefore e.g. the ubuntu server os. This is because mongo 4.x is only
 available for arm64 - not armv7(32bit) anymore.
